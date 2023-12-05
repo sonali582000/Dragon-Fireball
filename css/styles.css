@@ -1,0 +1,69 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+#game-container {
+  height: 100vh;
+  background-image: url("../images/village.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: blur(3px); */
+}
+
+#game-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-screen img {
+  height: 250px;
+  margin-bottom: 2em;
+}
+
+#game-screen button {
+  font-family: "Press Start 2p";
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #161a30;
+  color: #b6bbc4;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+}
+
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 7rem;
+  /* background: linear-gradient(
+    0deg,
+    rgba(255, 174, 0, 1) 0%,
+    rgba(255, 0, 0, 1) 100%
+  ); */
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
