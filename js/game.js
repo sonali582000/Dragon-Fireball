@@ -3,12 +3,17 @@ class Game {
   constructor() {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
+    this.gameEnd = document.getElementById("game-end");
     this.height = 220;
     this.width = 600;
     this.player = null;
     this.obstacles = [];
     this.animationId = null;
     this.bonus = [];
+    this.score = 0;
+    this.live = 3;
+    this.power = 0;
+    this.gameIsOver = false;
   }
 
   start() {
@@ -49,11 +54,13 @@ class Game {
       if (currentObstacle.left > -50) {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
+          this.live -= 1;
         } else {
           nextObstacle.push(currentObstacle);
         }
       } else {
         currentObstacle.element.remove();
+        this.score += 10;
       }
     });
     this.obstacles = nextObstacle;
@@ -61,7 +68,7 @@ class Game {
     if (this.gameIsOver) {
       return;
     }
-    if (this.animationId % 250 === 0) {
+    if (this.animationId % 200 === 0) {
       this.obstacles.push(new Obstacles(this.gameScreen));
     }
 
@@ -70,5 +77,14 @@ class Game {
     }
 
     this.animationId = window.requestAnimationFrame(() => this.gameLoop());
+    if (this.live > 0) {
+      document.getElementById("score").innerText = this.score;
+    } else {
+      this.gameIsOver = true;
+      this.gameScreen.style.display = "none";
+      this.gameEnd.style.display = "block";
+    }
+
+    document.getElementById("lives").innerText = this.live;
   }
 }

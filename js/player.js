@@ -58,7 +58,7 @@ class Player {
       playerRect.top < obstacleRect.bottom &&
       playerRect.bottom > obstacleRect.top
     ) {
-      console.log("treu");
+      console.log(playerRect.right, obstacleRect.left);
       return true;
     } else {
       return false;

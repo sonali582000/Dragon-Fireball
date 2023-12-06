@@ -4,7 +4,7 @@ class Obstacles {
     this.left = 550;
     this.top = Math.floor(Math.random() * (220 - 50 - 0) + 0);
     this.width = 50;
-    this.height = 70;
+    this.height = 30;
     this.element = document.createElement("img");
     this.element.src = "images/arrow.png";
     this.element.style.position = "absolute";

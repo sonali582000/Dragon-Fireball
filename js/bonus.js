@@ -7,7 +7,7 @@ class Bonus {
     this.height = 40;
 
     this.element = document.createElement("img");
-    this.element.src = "images/meat.png";
+    this.element.src = "images/gem.png";
     this.element.style.position = "absolute";
     this.element.style.height = `${this.height}px`;
     this.element.style.width = `${this.width}px`;
