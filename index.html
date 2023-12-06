@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      const userName = prompt(
+        "Before we dive into the adventure, may I kindly ask you to share your name with us?"
+      );
+      localStorage.setItem("name", userName);
+    </script>
   </head>
   <body>
     <div id="game-container"></div>

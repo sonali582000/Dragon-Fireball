@@ -22,10 +22,10 @@ class Player {
     } else {
       this.left = 0;
     }
-    if (this.left <= 600 - this.width) {
+    if (this.left <= 680 - this.width) {
       this.left += this.directionX;
     } else {
-      this.left = 600 - this.width;
+      this.left = 680 - this.width;
     }
 
     if (this.top >= 0) {

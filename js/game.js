@@ -4,16 +4,19 @@ class Game {
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.gameEnd = document.getElementById("game-end");
-    this.height = 220;
-    this.width = 600;
+    this.height = 350;
+    this.width = 700;
     this.player = null;
     this.obstacles = [];
     this.animationId = null;
     this.bonus = [];
     this.score = 0;
-    this.live = 3;
-    this.power = 0;
+    this.live = 5;
+    this.powers = 0;
     this.gameIsOver = false;
+    this.higherPoints = 0;
+    this.uname = "";
+    this.name = localStorage.getItem("name");
   }
 
   start() {
@@ -25,6 +28,8 @@ class Game {
     this.obstacles.push(new Obstacles(this.gameScreen));
     this.bonus.push(new Bonus(this.gameScreen));
     this.gameLoop();
+    document.getElementById("score-board").style.display = "block";
+    // document.querySelector(".game-objective").style.backgroundImage = "none";
   }
 
   gameLoop() {
@@ -35,10 +40,11 @@ class Game {
 
     this.bonus.forEach((currentBonus) => {
       currentBonus.move();
-      if (currentBonus.left > -40) {
+      if (currentBonus.left > 0) {
         if (this.player.didCollide(currentBonus)) {
-          const imgNum = Math.floor(Math.random() * (8 - 2 + 1) + 2);
+          const imgNum = Math.floor(Math.random() * (12 - 2 + 1) + 2);
           this.player.element.src = `images/dragon${imgNum}.png`;
+          this.powers += 5;
           currentBonus.element.remove();
         } else {
           power.push(currentBonus);
@@ -48,10 +54,11 @@ class Game {
       }
     });
     this.bonus = power;
+    console.log(this.name);
 
     this.obstacles.forEach((currentObstacle) => {
       currentObstacle.move();
-      if (currentObstacle.left > -50) {
+      if (currentObstacle.left > 0) {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
           this.live -= 1;
@@ -64,11 +71,11 @@ class Game {
       }
     });
     this.obstacles = nextObstacle;
-
+    console.log(this.obstacles);
     if (this.gameIsOver) {
       return;
     }
-    if (this.animationId % 200 === 0) {
+    if (this.animationId % 120 === 0) {
       this.obstacles.push(new Obstacles(this.gameScreen));
     }
 
@@ -77,14 +84,31 @@ class Game {
     }
 
     this.animationId = window.requestAnimationFrame(() => this.gameLoop());
+
     if (this.live > 0) {
       document.getElementById("score").innerText = this.score;
     } else {
       this.gameIsOver = true;
       this.gameScreen.style.display = "none";
       this.gameEnd.style.display = "block";
+      if (this.score > this.higherPoints) {
+        this.higherPoints = this.score;
+        this.uname = this.name;
+        document.getElementById("hpoints").innerText = this.higherPoints;
+        document.getElementById("name").innerText = this.uname;
+        localStorage.setItem("Username", this.uname);
+        localStorage.setItem("HighestPoint", this.higherPoints);
+      } else {
+        const Username = localStorage.getItem("Username");
+        const HighestPoint = localStorage.getItem("HighestPoint");
+        document.getElementById("hpoints").innerText = HighestPoint;
+        document.getElementById("name").innerText = Username;
+      }
+
+      console.log(Username, HighestPoint);
     }
 
     document.getElementById("lives").innerText = this.live;
+    document.getElementById("power").innerText = this.powers;
   }
 }

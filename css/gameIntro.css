@@ -16,7 +16,7 @@
   padding: 30px 50px;
   color: #d8d9da;
 }
-p {
+#game-intro p {
   padding: 0 0 30px 0;
   text-align: justify;
   font-size: bold;
@@ -30,14 +30,16 @@ p {
 
 #game-screen {
   display: none;
-  width: 50%;
+  width: 100%;
   position: relative;
-  height: 40%;
+  text-align: center;
+  height: 100%;
+  margin-left: 25%;
+  margin-right: 25%;
   background-size: contain;
   background-repeat: no-repeat;
-  overflow: hidden;
   /* background-color: aqua; */
-  background-image: url("../images/bg-img5.jpg");
+  background-image: url("../images/bg-img1.jpg");
   /* animation: slide 20s linear infinite; */
 }
 
@@ -90,9 +92,39 @@ button {
   cursor: pointer;
   text-transform: uppercase;
 }
+
 h3 {
   margin: 30px 0;
 }
 #game-end {
+  margin: auto;
   display: none;
+  text-align: center;
+  color: #d8d9da;
+}
+
+#score-board {
+  display: none;
+  font-family: "Press Start 2p";
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#score-board h2 {
+  color: #d8d9da;
+  text-transform: uppercase;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+#score-board p {
+  color: #ff8f8f;
+}
+
+#score-board span {
+  color: #91c8e4;
+}
+
+#uname {
+  margin-bottom: 10px;
 }

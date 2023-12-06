@@ -9,6 +9,7 @@ window.onload = function () {
   restartButton.addEventListener("click", function () {
     // startGame()
     location.reload();
+    window.location.href = "./index.html";
   });
 
   function startGame() {

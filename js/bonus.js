@@ -1,8 +1,8 @@
 class Bonus {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
-    this.left = 800;
-    this.top = Math.ceil(Math.random() * (220 - 50));
+    this.left = 650;
+    this.top = Math.ceil(Math.random() * (400 - 60 - 40) + 0);
     this.width = 40;
     this.height = 40;
 

@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/gameIntro.css" />
+    <script>
+      const name = localStorage.getItem("name");
+    </script>
   </head>
   <body>
     <div class="game-objective">
@@ -48,12 +51,18 @@
           height="100"
           width="100"
         />
+        <h2 id="uname"></h2>
+        <script>
+          document.getElementById("uname").innerHTML = "Hello, " + name + "!";
+        </script>
       </div>
       <div id="game-container">
-        <div>
-          <h2>Stats</h2>
+        <h2 id="uname"></h2>
+        <div id="score-board">
+          <h2>Score Board</h2>
+          <p>Lives: <span id="lives">5</span></p>
           <p>Score: <span id="score">0</span></p>
-          <p>Lives: <span id="lives">3</span></p>
+          <p>Power: <span id="power">0</span></p>
         </div>
         <div id="game-screen"></div>
       </div>
@@ -61,6 +70,16 @@
         <h1>Game Over</h1>
         <br />
         <button id="restart-button">Restart</button>
+        <h2>
+          <span
+            ><img
+              src="./images/party.gif"
+              alt="gif-cong"
+              height="50px"
+              width="50px" /></span
+          >Well done <span id="name"></span> on reaching the highest point of
+          <span id="hpoints"></span>.
+        </h2>
       </div>
     </div>
   </body>
