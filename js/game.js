@@ -17,6 +17,7 @@ class Game {
     this.higherPoints = 0;
     this.uname = "";
     this.name = localStorage.getItem("name");
+    this.opc = 1;
   }
 
   start() {
@@ -64,6 +65,8 @@ class Game {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
           this.live -= 1;
+          this.opc -= 0.15;
+          this.player.element.style.opacity = this.opc;
           const looseLive = new Audio("sounds/bow-arrow.mp3");
           looseLive.play();
         } else {
@@ -75,7 +78,6 @@ class Game {
       }
     });
     this.obstacles = nextObstacle;
-    console.log(this.obstacles);
     if (this.animationId % 120 === 0) {
       this.obstacles.push(new Obstacles(this.gameScreen));
     }
