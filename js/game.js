@@ -35,7 +35,6 @@ class Game {
 
   gameLoop() {
     this.player.move();
-
     const nextObstacle = [];
     const power = [];
 
@@ -45,7 +44,7 @@ class Game {
         if (this.player.didCollide(currentBonus)) {
           const imgNum = Math.floor(Math.random() * (12 - 2 + 1) + 2);
           this.player.element.src = `images/dragon${imgNum}.png`;
-          console.log(this.player.element.src);
+          // console.log(this.player.element.src);
           this.powers += 5;
           const powerSuccess = new Audio("sounds/success.mp3");
           powerSuccess.play();
@@ -65,7 +64,7 @@ class Game {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
           this.live -= 1;
-          this.opc -= 0.15;
+          this.opc -= 0.12;
           this.player.element.style.opacity = this.opc;
           const looseLive = new Audio("sounds/bow-arrow.mp3");
           looseLive.play();
