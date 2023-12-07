@@ -62,9 +62,6 @@ class Game {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
           this.live -= 1;
-          // if (this.live <= 0) {
-          //   this.gameIsOver = true;
-          // }
         } else {
           nextObstacle.push(currentObstacle);
         }
@@ -86,28 +83,6 @@ class Game {
     document.getElementById("score").innerText = this.score;
     document.getElementById("lives").innerText = this.live;
     document.getElementById("power").innerText = this.powers;
-
-    // if (this.gameIsOver) {
-    //   this.gameScreen.style.display = "none";
-    //   this.gameEnd.style.display = "block";
-    //   if (this.score > this.higherPoints) {
-    //     this.higherPoints = this.score;
-    //     this.uname = this.name;
-    //     document.getElementById("hpoints").innerText = this.higherPoints;
-    //     document.getElementById("name").innerText = this.uname;
-    //     localStorage.setItem("Username", this.uname);
-    //     localStorage.setItem("HighestPoint", this.higherPoints);
-    //   } else {
-    //     const Username = localStorage.getItem("Username");
-    //     const HighestPoint = localStorage.getItem("HighestPoint");
-    //     document.getElementById("hpoints").innerText = HighestPoint;
-    //     document.getElementById("name").innerText = Username;
-    //   }
-
-    //   console.log(Username, HighestPoint);
-    // } else {
-    //   this.animationId = window.requestAnimationFrame(() => this.gameLoop());
-    // }
 
     if (this.live > 0) {
       document.getElementById("score").innerText = this.score;
