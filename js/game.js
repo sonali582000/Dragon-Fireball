@@ -85,7 +85,7 @@ class Game {
 
     this.animationId = window.requestAnimationFrame(() => this.gameLoop());
 
-    if (this.live > 0) {
+    if (this.live >= 0) {
       document.getElementById("score").innerText = this.score;
     } else {
       this.gameIsOver = true;
@@ -107,7 +107,7 @@ class Game {
 
       console.log(Username, HighestPoint);
     }
-
+    document.getElementById("score").innerText = this.score;
     document.getElementById("lives").innerText = this.live;
     document.getElementById("power").innerText = this.powers;
   }
