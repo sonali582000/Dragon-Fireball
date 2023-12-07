@@ -14,18 +14,29 @@ window.onload = function () {
 
   function startGame() {
     game = new Game();
-    game.start();
-    console.log("start game");
+    const startGame = new Audio("sounds/start-game.mp3");
+    startGame.play();
+    setTimeout(function () {
+      game.start();
+    }, 1000);
   }
   document.addEventListener("keydown", (event) => {
     if (event.code === "ArrowUp" || event.code === "KeyW") {
       game.player.directionY = -1;
+      const upArrow = new Audio("sounds/up.mp3");
+      upArrow.play();
     } else if (event.code === "ArrowDown" || event.code === "KeyS") {
       game.player.directionY = 1;
+      const downArrow = new Audio("sounds/drop.mp3");
+      downArrow.play();
     } else if (event.code === "ArrowLeft" || event.code === "KeyA") {
       game.player.directionX = -1;
+      const leftArrow = new Audio("sounds/left.wav");
+      leftArrow.play();
     } else if (event.code === "ArrowRight" || event.code === "KeyD") {
       game.player.directionX = 1;
+      const rightArrow = new Audio("sounds/right.wav");
+      rightArrow.play();
     }
   });
 

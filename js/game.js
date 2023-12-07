@@ -46,6 +46,8 @@ class Game {
           this.player.element.src = `images/dragon${imgNum}.png`;
           console.log(this.player.element.src);
           this.powers += 5;
+          const powerSuccess = new Audio("sounds/success.mp3");
+          powerSuccess.play();
           currentBonus.element.remove();
         } else {
           power.push(currentBonus);
@@ -62,6 +64,8 @@ class Game {
         if (this.player.didCollide(currentObstacle)) {
           currentObstacle.element.remove();
           this.live -= 1;
+          const looseLive = new Audio("sounds/bow-arrow.mp3");
+          looseLive.play();
         } else {
           nextObstacle.push(currentObstacle);
         }
@@ -88,6 +92,8 @@ class Game {
       document.getElementById("score").innerText = this.score;
     } else {
       this.gameIsOver = true;
+      const gameOver = new Audio("sounds/game-over.wav");
+      gameOver.play();
       this.gameScreen.style.display = "none";
       this.gameEnd.style.display = "block";
       if (this.score > this.higherPoints) {

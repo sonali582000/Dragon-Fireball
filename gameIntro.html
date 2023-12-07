@@ -39,7 +39,15 @@
           Collect magical orbs scattered across the sky to nourish his power and
           ultimately break the curse.
         </p>
-        <button id="start-button">Start Game</button>
+        <button id="start-button" onclick="audioPlay()">Start Game</button>
+        <script>
+          function audioPlay() {
+            const audioPlay = new Audio("sounds/background-sound.mp3");
+            audioPlay.play();
+            audioPlay.volume = 0.15;
+            console.log("Play");
+          }
+        </script>
         <h3>
           Master the art of dragon flight with simple controls, Use the left and
           right arrow to control the dragon!
