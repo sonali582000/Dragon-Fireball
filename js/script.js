@@ -25,7 +25,7 @@ window.onload = function () {
         "#game-screen"
       ).style.backgroundImage = `url(images/bg-img${bgNum}.jpg`;
       console.log("Hi from scriptjs file");
-    }, 15000);
+    }, 20000);
   }
   document.addEventListener("keydown", (event) => {
     if (event.code === "ArrowUp" || event.code === "KeyW") {
